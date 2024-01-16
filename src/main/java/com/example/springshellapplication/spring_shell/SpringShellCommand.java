@@ -20,5 +20,10 @@ public class SpringShellCommand {
         return "Response From Spring-Webs: "+response.getBody();
     }
 
+    @ShellMethod(key = "getAllPosts", value = "i will get all posts")
+    public String getAllPosts(){
+        String getAllPostsURL = "http://localhost:8080/api/all/posts";
+        return "Response From Spring-Webs: "+restTemplate.getForEntity(getAllPostsURL,String.class).getBody();
+    }
 
 }
